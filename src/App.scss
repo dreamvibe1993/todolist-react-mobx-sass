@@ -1,0 +1,37 @@
+@import "./index";
+$navbarHeight: 60px;
+
+.App {
+  text-align: center;
+  @extend %flexColumn;
+  justify-content: center;
+  align-items: center;
+  padding-top: $navbarHeight;
+}
+
+.Navbar {
+  background-color: $main;
+  min-height: $navbarHeight;
+  width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  @extend %flexRow;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0px 10px;
+  box-shadow: $shadow;
+  h3 {
+    color: $dark;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .App {
+    margin-bottom: 70px;
+  }
+}

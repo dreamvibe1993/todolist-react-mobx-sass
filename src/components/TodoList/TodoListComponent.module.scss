@@ -1,0 +1,83 @@
+@import "../../index.scss";
+
+.noEntry {
+  width: 60%;
+  background-color: rgb(250, 250, 250);
+  box-shadow: $shadow;
+}
+
+.table {
+  width: 60%;
+  margin: $marginDefault;
+  border-collapse: collapse;
+  border: 1px solid rgb(221, 221, 221);
+  background-color: rgb(250, 250, 250);
+  box-shadow: $shadow;
+  th,
+  td {
+    padding: $paddingDefault;
+    border: 1px solid rgb(221, 221, 221);
+  }
+}
+.completionCell,
+.urgenceCell {
+  cursor: pointer;
+}
+
+.completionCell:hover::before,
+.urgenceCell:hover::before {
+  content: "Click to change status";
+  box-shadow: $shadow;
+  font-size: 12px;
+  padding: $paddingDefault;
+  border-radius: $borderRadDefault;
+  background: rgba(255, 255, 255, 0.2);
+  margin: $marginDefault * 2;
+  position: absolute;
+}
+
+.deleteButton {
+  border: none;
+  cursor: pointer;
+  padding: $paddingDefault;
+}
+
+.deleteButton:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.buttonContainer {
+  @extend %flexRow;
+  width: 60%;
+  padding: $paddingDefault;
+  justify-content: center;
+  button {
+    @extend %dropButtonsDefaultStyle;
+    padding: $paddingDefault;
+    cursor: pointer;
+    font-weight: bolder;
+  }
+  button:hover {
+    background-color: #eee;
+  }
+}
+
+@media screen and (max-width: 414px) {
+    .buttonContainer {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        box-shadow: $shadow;
+        background-color: $main;
+        button {
+            background-color: none;
+        }
+        button:hover {
+            background-color: $dark;
+          }
+    }
+  .completionCell:hover::before,
+  .urgenceCell:hover::before {
+    display: none;
+  }
+}
