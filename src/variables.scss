@@ -1,0 +1,32 @@
+$main: #a5d6a7;
+$light: #d7ffd9;
+$dark: #75a478;
+$shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+$borderRadDefault: 15px;
+$marginDefault: 10px;
+$paddingDefault: 10px;
+$navbarHeight: 60px;
+
+%flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+%flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+%absoluteModal {
+  position: absolute;
+}
+
+%dropDefaultStyle {
+  background-color: transparent;
+  border: none;
+}
+
+%dropDefaultStyle {
+  background-color: transparent;
+  border: none;
+}

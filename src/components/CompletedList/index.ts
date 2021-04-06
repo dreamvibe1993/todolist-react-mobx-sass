@@ -1,1 +1,0 @@
-export { CompletedListComponent } from './CompletedListComponent'

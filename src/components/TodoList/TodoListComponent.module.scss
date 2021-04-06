@@ -1,4 +1,4 @@
-@import "../../index.scss";
+@import "../../variables.scss";
 
 .noEntry {
   width: 60%;
@@ -19,6 +19,7 @@
     border: 1px solid rgb(221, 221, 221);
   }
 }
+
 .completionCell,
 .urgenceCell {
   cursor: pointer;
@@ -52,7 +53,7 @@
   padding: $paddingDefault;
   justify-content: center;
   button {
-    @extend %dropButtonsDefaultStyle;
+    @extend %dropDefaultStyle;
     padding: $paddingDefault;
     cursor: pointer;
     font-weight: bolder;
@@ -63,19 +64,19 @@
 }
 
 @media screen and (max-width: 414px) {
-    .buttonContainer {
-        width: 100%;
-        position: fixed;
-        bottom: 0;
-        box-shadow: $shadow;
-        background-color: $main;
-        button {
-            background-color: none;
-        }
-        button:hover {
-            background-color: $dark;
-          }
+  .buttonContainer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    box-shadow: $shadow;
+    background-color: $main;
+    button {
+      background-color: none;
     }
+    button:hover {
+      background-color: $dark;
+    }
+  }
   .completionCell:hover::before,
   .urgenceCell:hover::before {
     display: none;

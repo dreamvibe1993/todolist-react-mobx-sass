@@ -1,10 +1,9 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react'
-import { Todo } from '../../utils/todos'
-import Todolist from '../../utils/todos'
 import { observer } from "mobx-react-lite";
+import Todolist, { Todo } from '../../utils/todos'
+
 import styles from './TodoListComponent.module.scss'
-
-
 
 export const TodoListComponent: React.FC = observer(() => {
     const todoListJSX = (
@@ -27,22 +26,42 @@ export const TodoListComponent: React.FC = observer(() => {
                     </tr>
                 </thead>
                 <tbody>
-                    {Todolist.todos.map((todo: Todo) => {
-                        return (
-                            <tr key={todo.id}>
-                                <td>{todo.title}</td>
-                                <td className={styles.completionCell} onClick={() => Todolist.switchCompletionStatus(todo)}>{todo.isDone ? 'Completed ✔️' : 'Pending ⏳'}</td>
-                                <td className={styles.urgenceCell} onClick={() => Todolist.switchUrgencyStatus(todo)}>{todo.isUrgent ? 'Urgent ❗' : 'Non-urgent 💤'}</td>
-                                <td><button className={styles.deleteButton} onClick={() => Todolist.deleteTodo(todo.id)} type="button">Delete todo</button></td>
-                            </tr>
-                        )
-                    })}
+                    {Todolist.todos.map((todo: Todo) => (
+                        <tr key={todo.id}>
+                            <td>{todo.title}</td>
+                            <td
+                                className={styles.completionCell}
+                                onClick={() => Todolist.switchCompletionStatus(todo)}
+                            >{
+                                    todo.isDone
+                                        ? <p>Completed <span role="img">✔️</span></p>
+                                        : <p>Pending <span role="img">⏳</span></p>}
+                            </td>
+                            <td
+                                className={styles.urgenceCell}
+                                onClick={() => Todolist.switchUrgencyStatus(todo)}
+                            >{
+                                    todo.isUrgent
+                                        ? <p>Urgent <span role="img">❗</span></p>
+                                        : <p>Non-urgent <span role="img">💤</span></p>}
+                            </td>
+                            <td>
+                                <button
+                                    className={styles.deleteButton}
+                                    onClick={() => Todolist.deleteTodo(todo.id)}
+                                    type="button"
+                                >
+                                    Delete todo
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
             <div className={styles.buttonContainer}>
-                <button type="button" onClick={() => Todolist.sortByUrgency()}>SORT BY URGENCY</button>
-                <button type="button" onClick={() => Todolist.sortByCompleteness()}>SORT BY COMPLETENESS</button>
-                <button type="button" onClick={() => Todolist.sortByBoth()}>SORT BY BOTH</button>
+                <button onClick={() => Todolist.sortByUrgency()} type="button">SORT BY URGENCY</button>
+                <button onClick={() => Todolist.sortByCompleteness()} type="button">SORT BY COMPLETENESS</button>
+                <button onClick={() => Todolist.sortByBoth()} type="button">SORT BY BOTH</button>
 
             </div>
 
