@@ -1,0 +1,88 @@
+@import "../../variables.scss";
+
+.modalContainer {
+  padding: $paddingDefault;
+  margin: $marginDefault;
+  background-color: $main;
+  border-radius: $borderRadDefault;
+  box-shadow: $shadow;
+}
+
+
+.modalForm {
+  width: 300px;
+  height: fit-content;
+  @extend %flexColumn;
+  justify-content: space-around;
+  background-color: $light;
+  border-radius: $borderRadDefault;
+
+  input[type="radio"] {
+    display: none;
+    &:checked + label {
+      background-color: $dark;
+    }
+  }
+
+  label {
+    display: inline-block;
+    background-color: $main;
+    padding: $paddingDefault / 2 $paddingDefault * 3;
+    margin: $marginDefault / 2;
+    border-radius: $borderRadDefault + 5px;
+    cursor: pointer;
+    box-shadow: $shadow;
+  }
+
+  .inputsContainer {
+    padding: $paddingDefault 0px;
+    background-color: $main;
+    
+    input {
+      @extend %dropDefaultStyle;
+      background-color: whitesmoke;
+      height: 40px;
+      padding: 0px $paddingDefault;
+      font-size: larger;
+      border-radius: $borderRadDefault;
+    }
+  }
+
+  .options {
+    background-color: $light;
+    border-radius: $borderRadDefault;
+    margin: $marginDefault 0px;
+    
+    .radioButtonsBlock {
+      @extend %flexColumn;
+      justify-content: center;
+      align-items: center;
+
+      strong {
+        padding: $paddingDefault 0px;
+        font-size: larger;
+      }
+
+      .radioButtons {
+        @extend %flexColumn;
+        width: 50%;
+      }
+    }
+
+    .btnContainer {
+      button {
+        @extend %dropDefaultStyle;
+        padding: $paddingDefault 0px;
+        background-color: $main;
+        padding: $paddingDefault $paddingDefault * 4;
+        margin: $marginDefault;
+        border-radius: $borderRadDefault + 5px;
+      }
+
+      button:hover {
+        @extend %dropDefaultStyle;
+        background-color: $dark;
+      }
+    }
+  }
+}

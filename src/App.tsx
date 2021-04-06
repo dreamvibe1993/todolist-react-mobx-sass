@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { TodoCreationModal } from './components/TodoCreationModal';
+import { TodoListComponent } from './components/TodoList/TodoListComponent';
 
-function App() {
+
+function App(): JSX.Element {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav className="Navbar">
+        <h3>TO-DO-DOO&apos;s</h3>
+      </nav>
+      <TodoCreationModal />
+      <TodoListComponent />
     </div>
   );
 }
